@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import {FETCH_PRODUCTS, INCREMENT_COUNT, DECREMENT_COUNT,EMPTY_CART} from "./actions.type";
-import axios from 'axios';
+// import axios from 'axios';
 // import productsDetails from '../assets/productsDetails.json'
 Vue.use(Vuex);
 
@@ -27,8 +27,8 @@ export default new Vuex.Store({
   },
   actions: {
     [FETCH_PRODUCTS](context) {
-      axios
-        .get("http://localhost:3000/data")
+      fetch("productsDetails.json")
+        .then(response => response.json())
         .then(response => {
           context.commit("setProductsDetails", response.data);
       })
