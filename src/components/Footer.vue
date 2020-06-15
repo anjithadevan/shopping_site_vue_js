@@ -7,7 +7,9 @@
             <div class="footer-content">
             Total {{totalPrice($store.state.products)}}
             </div>
-            <button class="checkout-btn" @click="ckeckOut(totalPrice($store.state.products))">CHECKOUT</button>
+            <span>
+                <button class="checkout-btn" @click="ckeckOut(totalPrice($store.state.products))">CHECKOUT</button>
+            </span>
         </div>
     </Fragment>
 </template>
@@ -74,5 +76,19 @@ export default {
 .footer-content{
     float:left;
     font-size: medium
+}
+@media screen and (max-width: 1024px){
+    .checkout-btn{
+        margin-left:10%;
+    }
+    .footer-content{
+        margin-left:20%;
+    }
+}
+@media screen and (max-width: 400px){
+    .checkout-btn{
+        margin-left:10%;
+        margin-top: 0px;
+    }
 }
 </style>

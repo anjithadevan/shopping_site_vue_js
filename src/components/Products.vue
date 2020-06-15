@@ -13,7 +13,7 @@
                 <div class="product-details">{{product.MRF}}</div>
                 <div class="product-details"><b>RS <span> </span>{{product.price}}</b></div>
                 <div class="add-cart"><button class="cart-button" @click="incrementCount(index)">Add To Cart</button>
-                <span style="    padding-left: 30px;">
+                <span class="inc-dec-span">
                   <button class="inc-dec-button" @click="decrementCount(index,product.count)" v-if="product.count == 0" disabled>-</button>
                   <button class="inc-dec-button" @click="decrementCount(index)" v-else>-</button>
                   {{product.count}}
@@ -116,5 +116,13 @@ export default {
   font-weight: bold;
   border-radius: 60%;
   padding: 5px 15px;
+}
+.inc-dec-span{
+  padding-left: 30px;
+}
+@media screen and (max-width: 1024px){
+  .inc-dec-span{
+    padding-left: 10px;
+  }
 }
 </style>
