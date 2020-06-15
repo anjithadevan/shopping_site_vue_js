@@ -3,23 +3,29 @@
     <div class="container" v-for="(product,index) in (products)"  v-bind:key="index">
         <div class="row">
             <div class="column side">
-                <img :src=product.image_url width="100">
+                <img :src=product.image_url width="100" class="product-img">
                 <div>{{product.offer_text}}</div>
             </div>
             <div class="column middle">
-                <div>{{product.brand_name}}</div>
-                <div>{{product.product_name}}</div>
-                <div>{{product.quantity}}</div>
-                <div>{{product.MRF}}</div>
-                <div><b>RS <span> </span>{{product.price}}</b></div>
-                <div><button @click="incrementCount(index)">Add To Cart</button></div>
+                <div class="product-brand-name">{{product.brand_name}}</div>
+                <div class="product-name">{{product.product_name}}</div>
+                <div class="product-details">{{product.quantity}}</div>
+                <div class="product-details">{{product.MRF}}</div>
+                <div class="product-details"><b>RS <span> </span>{{product.price}}</b></div>
+                <div class="add-cart"><button class="cart-button" @click="incrementCount(index)">Add To Cart</button>
+                <span style="    padding-left: 30px;">
+                  <button class="inc-dec-button" @click="decrementCount(index,product.count)" v-if="product.count == 0" disabled>-</button>
+                  <button class="inc-dec-button" @click="decrementCount(index)" v-else>-</button>
+                  {{product.count}}
+                  <button class="inc-dec-button" @click="incrementCount(index)">+</button>
+                </span>
+                </div>
                 <div>
-                    <button @click="decrementCount(index,product.count)" v-if="product.count == 0" disabled>-</button>
-                    <button @click="decrementCount(index)" v-else>-</button>
-                    {{product.count}}
-                    <button @click="incrementCount(index)">+</button></div>
+                    
+                </div>
             </div>
         </div>
+        <hr>
     </div>
     </div>
 </template>
@@ -49,6 +55,7 @@ export default {
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 40px;
 }
 .column {
   float: left;
@@ -58,6 +65,7 @@ export default {
 /* Left and right column */
 .column.side {
   width: 25%;
+  padding-left: 20%;
 }
 
 /* Middle column */
@@ -77,5 +85,36 @@ export default {
   .column.side, .column.middle {
     width: 100%;
   }
+}
+.product-img {
+  padding-left: 20px
+}
+.product-brand-name{
+  font-size: xx-large;font-weight: bold;
+}
+.product-name{
+  font-size: x-large;
+}
+.product-details{
+  font-size: larger;
+}
+.add-cart{
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+}
+.cart-button{
+  background: green;
+  padding: 5px 26px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: large;
+}
+.inc-dec-button{
+  color: black;
+  background: green;
+  font-weight: bold;
+  border-radius: 60%;
+  padding: 5px 15px;
 }
 </style>

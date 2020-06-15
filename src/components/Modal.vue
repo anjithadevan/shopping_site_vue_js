@@ -6,7 +6,7 @@
           <button
             type="button"
             class="btn-close"
-            @click="close"
+            @click="close('close')"
           >
             x
           </button>
@@ -26,7 +26,7 @@
             <button
               type="button"
               class="btn-green"
-              @click="close"
+              @click="close('ok')"
             >
               ok
           </button>
@@ -39,8 +39,8 @@
 export default {
     name: 'modal',
     methods: {
-      close() {
-        this.$emit('close');
+      close(val) {
+        this.$emit('close',val);
       },
     },
     props:['total_price']

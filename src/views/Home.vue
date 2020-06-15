@@ -10,7 +10,7 @@
 import Footer from '../components/Footer'
 import Products from '../components/Products'
 import Modal from '../components/Modal'
-import {FETCH_PRODUCTS} from "@/store/actions.type";
+import {FETCH_PRODUCTS,EMPTY_CART} from "@/store/actions.type";
 export default {
   name: "Home",
   data: function() {
@@ -32,9 +32,11 @@ export default {
       this.total_price = total
       this.modalFlag = true
     },
-    close(){
+    close(val){
       this.modalFlag = false
-      this.total_price = 0
+      if (val == 'ok'){
+        this.$store.dispatch(EMPTY_CART)
+      }
     }
   }
 };

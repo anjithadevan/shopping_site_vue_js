@@ -1,8 +1,12 @@
 <template>
     <Fragment>
         <div class="footer">
-            <h5 class="footer-content"><span>Qty <span>{{totalQuantity($store.state.products)}}</span></span></h5><br>
-            <h5 class="footer-content"><span>Total <span>{{totalPrice($store.state.products)}}</span></span></h5><br>
+            <div class="footer-content">
+            Qty {{totalQuantity($store.state.products)}}
+            </div><br><br>
+            <div class="footer-content">
+            Total {{totalPrice($store.state.products)}}
+            </div>
             <button class="checkout-btn" @click="ckeckOut(totalPrice($store.state.products))">CHECKOUT</button>
         </div>
     </Fragment>
@@ -53,15 +57,22 @@ export default {
    left: 0;
    bottom: 0;
    width: 100%;
-   background-color: red;
+   background-color: #e222cb;
    color: white;
    text-align: center;
    height: 10%;
+   margin-top: 10px;
+   padding-top: 20px;
 }
 .checkout-btn{
-    float: right;
+    background: #549013;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: large;
+    margin-left:80%;
 }
 .footer-content{
-    float:left
+    float:left;
+    font-size: medium
 }
 </style>
